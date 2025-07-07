@@ -1,0 +1,70 @@
+:root {
+  --primary: #1976d2;
+  --secondary: #424242;
+  --accent: #ffca28;
+  --bg: #fff;
+  --sidebar-bg: #f8f9fa;
+  --note-card-bg: #fff;
+  --text: #282c34;
+  --border: #e9ecef;
+  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --placeholder: #919191;
+}
+
+/* Modern minimal UI styles for Notemaster */
+
+body, .notes-app {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  font-family: 'Segoe UI',Arial,Helvetica,sans-serif;
+  min-height: 100vh;
+}
+
+/* Hides scrollbars unless actively scrolling */
+.sidebar nav::-webkit-scrollbar,
+.main-panel::-webkit-scrollbar {
+  width: 5px;
+  background: var(--sidebar-bg);
+}
+.sidebar nav::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 5px;
+}
+.main-panel::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 5px;
+}
+
+.note-list-item:focus {
+  outline: 2px solid var(--primary);
+}
+
+/* Responsive: Sidebar collapses under 720px */
+@media (max-width: 720px) {
+  .sidebar {
+    display: none !important;
+  }
+  .main-panel {
+    width: 100vw !important;
+    padding: 0;
+  }
+  .main-panel > div,
+  .main-panel > section {
+    max-width: 100vw !important;
+    padding: 12px !important;
+    margin: 0 !important;
+  }
+}
+
+/* Text selection styles for better UX */
+.note-list-item,
+.main-panel section, .main-panel input, .main-panel textarea {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+::-webkit-input-placeholder { color: var(--placeholder); }
+::-moz-placeholder { color: var(--placeholder); }
+:-ms-input-placeholder { color: var(--placeholder); }
+::placeholder { color: var(--placeholder); }
